@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>똑똑약 - 시니어 복약 관리 파트너</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 폰트: 프리텐다드 적용 -->
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+</head>
+
+<body>
+    <!-- 스크롤 진행 상태 바 -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <!-- 상단 내비게이션 -->
+    <nav>
+        <div class="nav-container">
+            <a href="#hero" class="logo-link">
+                <img src="img/똑똑약_로고_1-removebg-preview.png" alt="똑똑약 로고" class="nav-logo">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#flowchart">FLOW CHART</a></li>
+                <li><a href="#problem">PROBLEM</a></li>
+                <li><a href="#features">핵심 기능</a></li>
+                <li><a href="#persona">PERSONA</a></li>
+                <li><a href="#screens">MAIN SCREENS</a></li>
+                <li><a href="#prompts">AI적용사례</a></li>
+                <li><a href="#utilization">AI Tools</a></li>
+                <li><a href="#process">작업 기간</a></li>
+                <li><a href="#thankyou">THANK YOU</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 히어로 섹션: 앱의 첫인상 -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">시니어 맞춤형 복약 알리미</span>
+                <h1>오늘 약, 드셨나요?<br>똑똑약이 곁에서<br>챙겨드릴게요.</h1>
+                <p>자녀의 마음으로 꼼꼼하게<br> 시니어를 위한 가장 쉬운 복약 관리 파트너<br>' 똑똑약 '</p>
+                <div class="hero-btns">
+                    <a href="#features" class="btn btn-primary">앱 기능 살펴보기</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="img/똑똑약_로고_3-removebg-preview.png" alt="똑똑약 메인 캐릭터">
+            </div>
+        </div>
+    </section>
+
+    <!-- 히어로 섹션 끝 -->
+
+    <!-- FLOW CHART 섹션: 앱 구조도 -->
+    <section id="flowchart" class="flowchart">
+        <div class="container">
+            <div class="flow-header">
+                <span class="flow-subtitle">FLOW CHART</span>
+                <div class="flow-line"></div>
+                <h2 class="flow-title">앱 구조도</h2>
+            </div>
+            <div class="flow-content">
+                <img src="img/flowchart.png" alt="똑똑약 앱 구조도" class="flow-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM 섹션: 사용자의 페인 포인트 강조 -->
+    <section id="problem" class="problem">
+        <div class="problem-left">
+            <div class="bg-number">01</div>
+            <div class="p-content">
+                <span class="p-subtitle">PROBLEM</span>
+                <h2 class="p-title">이런 경험,<br>있지 않으신가요?</h2>
+                <div class="p-divider"></div>
+                <p class="p-desc">매일 먹어야 하는 약의 종류와 양이 점점 늘어간다. 하지만 깜빡해서 잊고 거르는 날도 있고, 아침에 먹어야 하는 약을 오후에 먹는 경우도 종종 발생한다.
+                    똑똑약은 이런 일을 해결합니다.</p>
+            </div>
+        </div>
+        <div class="problem-right">
+            <div class="card-list">
+                <div class="problem-card">
+                    <span class="card-index">01</span>
+                    <div class="card-info">
+                        <h4>아침/저녁, 식전/식후 언제 먹어야 하는가?</h4>
+                        <p>약에 따라 정확히 먹어야 약 효능이 좋다는 걸 알지만 가끔은 헷갈립니다.</p>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <span class="card-index">02</span>
+                    <div class="card-info">
+                        <h4>처방약과 영양제 약의 종류가 많다.</h4>
+                        <p>어떤 어떤 약을 먹어야 하는지 기억하기 어렵습니다.</p>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <span class="card-index">03</span>
+                    <div class="card-info">
+                        <h4>꾸준히 못 지킨다</h4>
+                        <p>바쁜 일상 속에서 잊어버리곤 합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 핵심 기능 섹션 -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>똑똑약의 세심한 기능</h2>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="f-icon">📢</div>
+                    <h3>대형 글씨 알림</h3>
+                    <p>눈이 침침해도 괜찮아요. 큰 글씨와 명확한 소리로 복용 시간을 알려드립니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">📸</div>
+                    <h3>사진으로 간편 등록</h3>
+                    <p>복잡한 설정 대신 사진 한 장으로 복용 스케줄을 자동 등록하세요.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">👨‍👩‍👧‍👦</div>
+                    <h3>가족 안심 서비스</h3>
+                    <p>부모님이 약을 드셨는지 자녀가 실시간으로 확인할 수 있어 든든합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 페르소나 섹션: 실제 사용자 이야기 -->
+    <section id="persona" class="persona">
+        <div class="container">
+            <div class="section-header">
+                <h2>이미 많은 분들이 '똑똑약'과 함께하고 있어요</h2>
+            </div>
+            <div class="persona-grid">
+                <!-- 이혜경 님 -->
+                <div class="persona-card">
+                    <div class="p-header">
+                        <h4>이혜경 님 (62세)</h4>
+                        <span>프리랜서 강사</span>
+                    </div>
+                    <p class="p-quote">"바쁜 아침, 식탁 위 약을 보고도 먹었는지 헷갈릴 때가 많았죠."</p>
+                    <p class="p-desc">8시 알람 덕분에 30초 만에 체크 끝! 달성률을 보며 건강을 챙기는 확신을 얻어요.</p>
+                    <div class="persona-img-wrapper">
+                        <img src="img/lee_hye_kyung_62.png" alt="이혜경 님" class="persona-img">
+                    </div>
+                </div>
+                <!-- 신병일 님 -->
+                <div class="persona-card">
+                    <div class="p-header">
+                        <h4>신병일 님 (70세)</h4>
+                        <span>은퇴 시니어</span>
+                    </div>
+                    <p class="p-quote">"손주를 돌보다 보면 약 먹는 걸 깜빡하기 일쑤인데, 든든한 비서가 생겼어요."</p>
+                    <p class="p-desc">기억이 희미해도 앱만 켜면 확인되니 안심됩니다. 혈압약 관리가 쉬워졌어요.</p>
+                    <div class="persona-img-wrapper">
+                        <img src="img/shin_byeong_il_70.png" alt="신병일 님" class="persona-img">
+                    </div>
+                </div>
+                <!-- 김진성 님 -->
+                <div class="persona-card">
+                    <div class="p-header">
+                        <h4>김진성 님 (58세)</h4>
+                        <span>회사원</span>
+                    </div>
+                    <p class="p-quote">"약은 줄이고 체력은 높이고! 혈압과 체중 변화를 함께 기록하고 있습니다."</p>
+                    <p class="p-desc">단순 복용을 넘어 기록을 통해 건강한 생활을 하면서 약을 줄여나가는 의욕이 생깁니다.</p>
+                    <div class="persona-img-wrapper">
+                        <img src="img/kim_jin_sung_58.png" alt="김진성 님" class="persona-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 앱 화면 소개 섹션 -->
+    <section id="screens" class="screens">
+        <div class="screens-left">
+            <div class="bg-number">04</div>
+            <div class="s-content">
+                <span class="s-subtitle">MAIN SCREENS</span>
+                <h2 class="s-title">앱 화면을<br>미리 보세요</h2>
+                <div class="s-divider"></div>
+                <p class="s-desc">홈 대시보드에서 오늘 먹어야 할 약을 한눈에 확인하세요. 명확한 알림과 간편한 체크리스트로 부모님의 복약 시간을 꼼꼼하게 챙겨드립니다.</p>
+                <div class="s-action" style="margin-top: 40px;">
+                    <button id="rotate-btn" class="play-btn">
+                        <span class="play-icon">▶</span> 화면 전환하기
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="screens-right">
+            <div class="carousel-container">
+                <div class="screen-carousel" id="screen-carousel">
+                    <div class="screen-item active" data-index="0">
+                        <img src="img/screen1.png" alt="앱 화면 1">
+                        <span>홈 대시보드</span>
+                    </div>
+                    <div class="screen-item next" data-index="1">
+                        <img src="img/screen2.png" alt="앱 화면 2">
+                        <span>복약 현황</span>
+                    </div>
+                    <div class="screen-item hidden" data-index="2">
+                        <img src="img/screen3.png" alt="앱 화면 3">
+                        <span>복약 리스트</span>
+                    </div>
+                    <div class="screen-item prev" data-index="3">
+                        <img src="img/screen4.png" alt="앱 화면 4">
+                        <span>복약 알림</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 프롬프트 섹션 -->
+    <section id="prompts" class="prompts">
+        <div class="prompts-left">
+            <div class="chat-window">
+                <div class="chat-header">
+                    <div class="dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="chat-title">Claude — 똑똑약 기획 대화</div>
+                </div>
+                <div class="chat-body">
+                    <div class="chat-msg user">
+                        <div class="msg-bubble">
+                            시니어 복약 관리 앱 '똑똑약' 기획 중이야. 타겟 사용자의 Pain Point 3가지를 정리해줘.
+                        </div>
+                        <div class="user-icon">나</div>
+                    </div>
+                    <div class="chat-msg ai">
+                        <div class="ai-icon">AI</div>
+                        <div class="msg-bubble ai-bubble">
+                            <span class="label">기획</span>
+                            ① 복잡한 복약 시간과 종류로 인한 혼란<br>
+                            ② 복용 여부를 가족이 확인하기 어려운 점<br>
+                            ③ 시력이 침침한 사용자를 위한 UI/UX 부재
+                        </div>
+                    </div>
+                    <div class="chat-msg user">
+                        <div class="msg-bubble">
+                            페르소나 3명 만들어줘. 이름, 나이, 직업, 한마디 인용구 포함해서.
+                        </div>
+                        <div class="user-icon">나</div>
+                    </div>
+                    <div class="chat-msg ai">
+                        <div class="ai-icon">AI</div>
+                        <div class="msg-bubble ai-bubble">
+                            <span class="label">페르소나</span>
+                            이혜경(62·프리랜서) — "바쁜 아침, 약 먹었는지 헷갈려요"<br>
+                            신병일(70·은퇴) — "손주 돌보다 보면 자꾸 깜빡해요"<br>
+                            김진성(58·회사원) — "혈압과 체중 변화를 함께 기록하고 싶어요"
+                        </div>
+                    </div>
+                    <div class="chat-msg user">
+                        <div class="msg-bubble">
+                            Firebase로 복약 기록 저장 코드 짜줘. 날짜, 시간, 약 이름 포함.
+                        </div>
+                        <div class="user-icon">나</div>
+                    </div>
+                    <div class="chat-msg ai">
+                        <div class="ai-icon">AI</div>
+                        <div class="msg-bubble ai-bubble">
+                            <span class="label">개발</span>
+                            db.collection("pillLogs").add({<br>
+                            &nbsp;&nbsp;userId, date, pillName,<br>
+                            &nbsp;&nbsp;takenTime, status: "completed"<br>
+                            })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="prompts-right">
+            <div class="bg-number">05</div>
+            <div class="pr-content">
+                <span class="pr-subtitle">AI PROMPT</span>
+                <h2 class="pr-title">실제로 사용한<br>AI 프롬프트</h2>
+                <div class="pr-divider"></div>
+                <p class="pr-desc">기획 단계부터 개발, 발표 자료까지 Claude와 나눈 실제 대화 예시입니다. AI를 협업 파트너로 활용해 혼자서도 완성도 높은 프로젝트를 완성할 수
+                    있었습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 활용 현황 섹션 -->
+    <section id="utilization" class="utilization">
+        <div class="container">
+            <div class="u-header">
+                <span class="u-subtitle">AI UTILIZATION</span>
+                <h2 class="u-title">AI를 어떻게 <mark>활용했나요?</mark></h2>
+                <p class="u-desc">단순한 검색을 넘어, 기획부터 발표까지 모든 단계에서<br>AI는 저의 가장 스마트한 협업 파트너였습니다.</p>
+            </div>
+
+            <div class="util-grid">
+                <!-- 기획 카드 -->
+                <div class="util-card c-plan">
+                    <div class="card-top">
+                        <div class="card-icon">💡</div>
+                        <span class="card-label">기획</span>
+                        <h3>아이디어 구체화 및 설계</h3>
+                        <p>페르소나 설정부터 기획서 초안 작성까지 전략적인 기반을 다졌습니다.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools">
+                            <span class="tool">Claude</span>
+                            <span class="tool">Gemini</span>
+                        </div>
+                        <div class="card-freq">
+                            <span class="freq-text">매일 사용</span>
+                            <div class="freq-progress">
+                                <div class="bar" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 디자인 카드 -->
+                <div class="util-card c-design">
+                    <div class="card-top">
+                        <div class="card-icon">🖋️</div>
+                        <span class="card-label">디자인</span>
+                        <h3>UI 및 시각 자료 제안</h3>
+                        <p>레이아웃 제안과 컬러 시스템 구축으로 디자인의 완성도를 높였습니다.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools">
+                            <span class="tool">Figma</span>
+                            <span class="tool">Dreamina</span>
+                        </div>
+                        <div class="card-freq">
+                            <span class="freq-text">자주 사용</span>
+                            <div class="freq-progress">
+                                <div class="bar" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 개발 카드 -->
+                <div class="util-card c-dev">
+                    <div class="card-top">
+                        <div class="card-icon">⚙️</div>
+                        <span class="card-label">개발</span>
+                        <h3>시스템 설계 및 오류 해결</h3>
+                        <p>API 설계 및 Firebase 연동 과정의 복잡한 로직을 함께 해결했습니다.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools">
+                            <span class="tool">Claude</span>
+                            <span class="tool">Copilot</span>
+                        </div>
+                        <div class="card-freq">
+                            <span class="freq-text">매일 사용</span>
+                            <div class="freq-progress">
+                                <div class="bar" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 발표 카드 -->
+                <div class="util-card c-pres">
+                    <div class="card-top">
+                        <div class="card-icon">💻</div>
+                        <span class="card-label">발표</span>
+                        <h3>포트폴리오 및 스크립트</h3>
+                        <p>효과적인 전달을 위한 포트폴리오 정리와 발표 대본을 최적화했습니다.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools">
+                            <span class="tool">Gamma</span>
+                            <span class="tool">Claude</span>
+                        </div>
+                        <div class="card-freq">
+                            <span class="freq-text">가끔 사용</span>
+                            <div class="freq-progress">
+                                <div class="bar" style="width: 30%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 작업 과정 섹션 -->
+    <section id="process" class="process">
+        <div class="process-left">
+            <div class="p-box period-box">
+                <span class="box-label">작업 기간</span>
+                <div class="period-header">
+                    <h3>4 Weeks</h3>
+                    <span class="dates">2026.04.06 — 05.01</span>
+                </div>
+                <div class="timeline-visual">
+                    <div class="t-line">
+                        <span class="t-dot"></span>
+                        <span class="t-dot"></span>
+                        <span class="t-dot"></span>
+                        <span class="t-dot"></span>
+                    </div>
+                    <div class="t-labels">
+                        <span>기획</span>
+                        <span>디자인</span>
+                        <span>개발</span>
+                        <span>발표</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tools-grid-label">사용 도구</div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="t-icon i-figma">🎨</div>
+                    <div class="t-info">
+                        <strong>Figma</strong>
+                        <span>UI / 프로토타입</span>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="t-icon i-claude">🤖</div>
+                    <div class="t-info">
+                        <strong>Claude</strong>
+                        <span>기획 · 개발</span>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="t-icon i-firebase">🔥</div>
+                    <div class="t-info">
+                        <strong>Firebase</strong>
+                        <span>DB · 백엔드</span>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="t-icon i-notion">📝</div>
+                    <div class="t-info">
+                        <strong>Notion</strong>
+                        <span>기획 · 일정</span>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="t-icon i-gamma">✨</div>
+                    <div class="t-info">
+                        <strong>Gamma</strong>
+                        <span>발표 자료</span>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="t-icon i-perplexity">🔍</div>
+                    <div class="t-info">
+                        <strong>Perplexity</strong>
+                        <span>시장 리서치</span>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="t-icon i-dreamina">🖼️</div>
+                    <div class="t-info">
+                        <strong>Dreamina</strong>
+                        <span>이미지 생성</span>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="t-icon i-chatgpt">🧠</div>
+                    <div class="t-info">
+                        <strong>ChatGPT</strong>
+                        <span>자료 조사</span>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="t-icon i-gemini">✨</div>
+                    <div class="t-info">
+                        <strong>Gemini</strong>
+                        <span>코드 최적화</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="process-right">
+            <div class="pr-header">
+                <span class="pr-subtitle">PROCESS</span>
+                <h2 class="pr-title">4주간의<br>작업 과정</h2>
+                <div class="pr-divider"></div>
+            </div>
+            <ul class="week-list">
+                <li>
+                    <span class="week-tag">WEEK 01</span>
+                    <strong>기획 · 리서치</strong>
+                    <p>사용자 인터뷰, 페르소나 설계, 플로우차트 작성</p>
+                </li>
+                <li>
+                    <span class="week-tag">WEEK 02</span>
+                    <strong>UI 디자인</strong>
+                    <p>와이어프레임, 프로토타입, 디자인 시스템 구성</p>
+                </li>
+                <li>
+                    <span class="week-tag">WEEK 03</span>
+                    <strong>개발 · 구현</strong>
+                    <p>Firebase 연동, AI 분석 API, 루틴 알림 개발</p>
+                </li>
+                <li>
+                    <span class="week-tag">WEEK 04</span>
+                    <strong>테스트 · 발표</strong>
+                    <p>사용자 테스트, 버그 수정, 포트폴리오 완성</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 마무리 섹션 (Thank You) -->
+    <section id="thankyou" class="thankyou">
+        <div class="ty-bg-text">D-YAK</div>
+        <div class="container">
+            <span class="ty-subtitle">THANK YOU</span>
+            <h2 class="ty-title">AI와 함께 만든<br>나만의 앱</h2>
+            <p class="ty-desc">코딩을 몰라도, 디자인을 몰라도.<br> AI 도구와 함께라면 누구나 완성도 높은 앱을 만들 수 있습니다.</p>
+            <div class="ty-tags">
+                <span class="ty-tag tag-fill">똑똑약</span>
+                <span class="ty-tag">시니어 복약 관리</span>
+                <span class="ty-tag">개인 프로젝트</span>
+                <span class="ty-tag">Figma + Claude + Firebase</span>
+                <span class="ty-tag">2026</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 하단 콜 투 액션 (CTA) -->
+    <footer class="cta">
+        <div class="container">
+            <img src="img/똑똑약_로고_1-removebg-preview.png" alt="똑똑약 캐릭터" class="footer-char">
+            <h2>부모님의 건강한 하루, '똑똑약'이 응원합니다</h2>
+            <a href="#" class="btn btn-white">지금 무료로 다운로드</a>
+        </div>
+    </footer>
+
+    <!-- 스크롤 진행 및 캐러셀 자바스크립트 -->
+    <script>
+        // 1. 스크롤 진행 바 로직
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scroll-progress');
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (window.pageYOffset / totalHeight) * 100;
+            scrollProgress.style.width = progress + '%';
+        });
+
+        // 2. 앱 화면 캐러셀 회전 로직
+        const rotateBtn = document.getElementById('rotate-btn');
+        const carouselItems = document.querySelectorAll('.screen-item');
+        let currentIndex = 0;
+
+        rotateBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % carouselItems.length;
+            updateCarousel();
+        });
+
+        function updateCarousel() {
+            carouselItems.forEach((item, index) => {
+                // 기존 클래스 제거
+                item.classList.remove('active', 'next', 'prev', 'hidden');
+
+                // 새로운 포지션 할당
+                if (index === currentIndex) {
+                    item.classList.add('active');
+                } else if (index === (currentIndex + 1) % carouselItems.length) {
+                    item.classList.add('next');
+                } else if (index === (currentIndex - 1 + carouselItems.length) % carouselItems.length) {
+                    item.classList.add('prev');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
