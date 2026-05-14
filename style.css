@@ -1137,14 +1137,14 @@ nav {
 /* 작업 과정 섹션 스타일 */
 .process {
     display: flex;
-    background-color: #a8baf6;
+    background-color: #b8c4ec;
     padding: 100px 0;
     width: 100%;
 }
 
 .process-left {
     flex: 1.4;
-    padding: 0 5% 0 10%;
+    padding: 20px 5% 0 10%;
 }
 
 .p-box {
@@ -1156,7 +1156,8 @@ nav {
 }
 
 .box-label {
-    font-size: 0.8rem;
+    font-size: 1.0rem;
+    font-weight: bold;
     color: #000;
     display: block;
     margin-bottom: 15px;
@@ -1224,12 +1225,14 @@ nav {
 }
 
 .t-labels span {
-    font-size: 0.85rem;
+    font-size: 1.0rem;
+    font-weight: bold;
     color: #000;
 }
 
 .tools-grid-label {
-    font-size: 0.85rem;
+    font-size: 1.0rem;
+    font-weight: bold;
     color: #000;
     margin-bottom: 20px;
 }
@@ -1237,7 +1240,7 @@ nav {
 .tools-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 20px;
 }
 
 .tool-card {
@@ -1372,18 +1375,6 @@ nav {
     overflow: hidden;
 }
 
-.ty-bg-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 25rem;
-    font-weight: 900;
-    color: rgba(255, 255, 255, 0.02);
-    white-space: nowrap;
-    pointer-events: none;
-    z-index: 1;
-}
 
 .thankyou .container {
     position: relative;
@@ -1410,7 +1401,7 @@ nav {
 
 .ty-desc {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: #fff;
     max-width: 700px;
     margin: 0 auto 60px;
     line-height: 1.8;
@@ -1425,9 +1416,9 @@ nav {
 
 .ty-tag {
     padding: 10px 24px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
     border-radius: 50px;
-    color: rgba(255, 255, 255, 0.5);
+    color: #fff;
     font-size: 1.0rem;
     transition: 0.3s;
 }
