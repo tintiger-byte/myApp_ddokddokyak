@@ -369,17 +369,6 @@ nav {
 
 }
 
-.bg-number {
-    position: absolute;
-    top: -50px;
-    left: -20px;
-    font-size: 20rem;
-    font-weight: 900;
-    color: rgba(255, 255, 255, 0.03);
-    line-height: 1;
-    pointer-events: none;
-}
-
 .p-content {
     position: relative;
     z-index: 10;
@@ -1368,11 +1357,14 @@ nav {
 
 /* 마무리 섹션 스타일 */
 .thankyou {
-    background-color: #8797c5;
+    background: linear-gradient(rgba(0, 0, 0, 0.6)), url('img/ai.jpg');
     padding: 120px 0;
     text-align: center;
     position: relative;
     overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 
@@ -1618,8 +1610,9 @@ nav {
 }
 
 .footer-char {
+    display: block;
+    margin: 0 auto 20px;
     width: 100px;
-    margin-bottom: 20px;
 }
 
 .cta h2 {
