@@ -12,6 +12,9 @@
 </head>
 
 <body>
+    <!-- 커스텀 커서 -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+
     <!-- 스크롤 진행 상태 바 -->
     <div id="scroll-progress" class="scroll-progress"></div>
 
@@ -637,8 +640,20 @@
 
         // 초기 알약들 생성
         for (let i = 0; i < 10; i++) setTimeout(createPill, Math.random() * 2000);
-        // 지속적으로 생성 (속도가 느려졌으므로 생성 간격을 약간 조절)
-        setInterval(createPill, 800);
+        // 4. 커스텀 커서 로직
+        const cursor = document.getElementById('custom-cursor');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // 링크나 버튼 호버 시 효과
+        const interactives = document.querySelectorAll('a, button, .screen-item, .persona-card, .util-card, #rotate-btn');
+        interactives.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
     </script>
 </body>
 

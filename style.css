@@ -20,6 +20,45 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     word-break: keep-all;
+    cursor: none; /* 기본 커서 숨김 */
+}
+
+/* 모든 클릭 요소에서도 커서 숨김 */
+a, button, input, select, textarea, label, [role="button"] {
+    cursor: none !important;
+}
+
+/* 커스텀 커서 스타일 */
+.custom-cursor {
+    width: 45px;
+    height: 45px;
+    background-image: url('img/똑똑약_로고_1-removebg-preview.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-15px, -15px); /* 클릭 지점 최적화 */
+    transition: transform 0.1s ease-out;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+}
+
+/* 호버 상태 클래스 */
+.custom-cursor.hover {
+    transform: translate(-15px, -15px) scale(1.4);
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+}
+
+/* 모바일/태블릿에서는 커스텀 커서 제외 */
+@media (max-width: 1024px) {
+    body, a, button, input, select, textarea, label {
+        cursor: auto !important;
+    }
+    .custom-cursor {
+        display: none;
+    }
 }
 
 .container {
@@ -65,7 +104,7 @@ nav {
 
 .nav-logo {
     height: 40px;
-    display: block;
+    display: flex;
     /* 이미지 하단 여백 제거 */
     transition: transform 0.3s ease;
 }
