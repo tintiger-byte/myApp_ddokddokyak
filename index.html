@@ -37,6 +37,7 @@
 
     <!-- 히어로 섹션: 앱의 첫인상 -->
     <section id="hero" class="hero">
+        <div id="pill-container" class="pill-bg"></div>
         <div class="hero-content">
             <div class="hero-text">
                 <span class="hero-badge">시니어 맞춤형 복약 알리미</span>
@@ -579,6 +580,63 @@
                 }
             });
         }
+
+        // 3. 히어로 섹션 알약 배경 애니메이션 (중앙에서 바깥으로 확산)
+        const pillContainer = document.getElementById('pill-container');
+        const pillShapes = ['💊', '💊', '⚪', '🟡', '🔴', '🔵', '💊'];
+        const pillColors = ['#FF6B6B', '#4DABF7', '#FFFFFF', '#FFD43B', '#FF8787', '#74C0FC', '#63E6BE'];
+        
+        function createPill() {
+            if (!pillContainer) return;
+            const pillWrap = document.createElement('div');
+            pillWrap.className = 'floating-pill';
+            
+            const pillObj = document.createElement('div');
+            pillObj.className = 'pill-obj';
+            
+            // 무작위 형태 결정
+            const type = Math.random();
+            if (type > 0.6) {
+                pillObj.classList.add('capsule');
+            } else if (type > 0.3) {
+                pillObj.classList.add('split');
+            }
+            
+            // 무작위 색상 적용
+            const color = pillColors[Math.floor(Math.random() * pillColors.length)];
+            pillObj.style.backgroundColor = color;
+            
+            pillWrap.appendChild(pillObj);
+            
+            const vh = window.innerHeight;
+            const vw = window.innerWidth;
+            
+            // 시작 위치: 중앙
+            const startX = vw / 2;
+            const startY = vh / 2;
+
+            // 목적지: 화면 외곽 (360도 방향으로 분산)
+            const angle = Math.random() * Math.PI * 2;
+            const distance = Math.max(vw, vh); 
+            const endX = startX + Math.cos(angle) * distance;
+            const endY = startY + Math.sin(angle) * distance;
+
+            pillWrap.style.setProperty('--start-x', `${startX}px`);
+            pillWrap.style.setProperty('--start-y', `${startY}px`);
+            pillWrap.style.setProperty('--end-x', `${endX}px`);
+            pillWrap.style.setProperty('--end-y', `${endY}px`);
+
+            const duration = 8 + Math.random() * 10; // 8~18초 (속도 2배 느리게)
+            pillWrap.style.animation = `pillFloatOut ${duration}s ease-out forwards`;
+            
+            pillContainer.appendChild(pillWrap);
+            setTimeout(() => pillWrap.remove(), duration * 1000);
+        }
+
+        // 초기 알약들 생성
+        for(let i=0; i<10; i++) setTimeout(createPill, Math.random() * 2000);
+        // 지속적으로 생성 (속도가 느려졌으므로 생성 간격을 약간 조절)
+        setInterval(createPill, 800);
     </script>
 </body>
 
