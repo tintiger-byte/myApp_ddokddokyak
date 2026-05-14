@@ -359,6 +359,50 @@ nav {
     flex: 1;
     height: 2px;
     background-color: #775232;
+    position: relative;
+    overflow: visible;
+}
+
+.flow-line::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #fff 10%, #ffeb3b 40%, #ff5722 100%);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 10px #ff5722, 0 0 20px #ff9800;
+    animation: sparkAlongLine 5s linear infinite;
+}
+
+@keyframes sparkAlongLine {
+    0% {
+        left: 0;
+        opacity: 0;
+        transform: translateY(-50%) scale(0.8);
+    }
+
+    5% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.2);
+    }
+
+    50% {
+        transform: translateY(-55%) scale(1);
+    }
+
+    95% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.2);
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+        transform: translateY(-50%) scale(0.8);
+    }
 }
 
 .flow-title {
@@ -673,8 +717,13 @@ nav {
 }
 
 @media (max-width: 1200px) {
-    .carousel-ctrl.prev { left: 10px; }
-    .carousel-ctrl.next { right: 10px; }
+    .carousel-ctrl.prev {
+        left: 10px;
+    }
+
+    .carousel-ctrl.next {
+        right: 10px;
+    }
 }
 
 /* 캐러셀 스타일 */
@@ -842,8 +891,28 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    max-height: 600px;
+    max-height: 500px;
+    /* 스크롤이 더 잘 보이도록 높이 조정 */
     overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.chat-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.chat-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .chat-msg {
