@@ -20,11 +20,18 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     word-break: keep-all;
-    cursor: none; /* 기본 커서 숨김 */
+    cursor: none;
+    /* 기본 커서 숨김 */
 }
 
 /* 모든 클릭 요소에서도 커서 숨김 */
-a, button, input, select, textarea, label, [role="button"] {
+a,
+button,
+input,
+select,
+textarea,
+label,
+[role="button"] {
     cursor: none !important;
 }
 
@@ -40,22 +47,31 @@ a, button, input, select, textarea, label, [role="button"] {
     left: 0;
     pointer-events: none;
     z-index: 10000;
-    transform: translate(-15px, -15px); /* 클릭 지점 최적화 */
+    transform: translate(-15px, -15px);
+    /* 클릭 지점 최적화 */
     transition: transform 0.1s ease-out;
-    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
 }
 
 /* 호버 상태 클래스 */
 .custom-cursor.hover {
     transform: translate(-15px, -15px) scale(1.4);
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
 }
 
 /* 모바일/태블릿에서는 커스텀 커서 제외 */
 @media (max-width: 1024px) {
-    body, a, button, input, select, textarea, label {
+
+    body,
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    label {
         cursor: auto !important;
     }
+
     .custom-cursor {
         display: none;
     }
@@ -619,30 +635,46 @@ nav {
 
 }
 
-/* 버튼 스타일 */
-.play-btn {
-    background: #FFB800;
-    color: #000;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 50px;
-    font-weight: 700;
+/* 캐러셀 조작 버튼 */
+.carousel-ctrl {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(59, 130, 246, 0.1);
+    border: 2px solid #3B82F6;
+    border-radius: 50%;
+    color: #3B82F6;
+    font-size: 1.5rem;
     cursor: pointer;
-    font-size: 1.1rem;
+    z-index: 200;
     display: flex;
     align-items: center;
-    gap: 12px;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
 }
 
-.play-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    background: #fff;
+.carousel-ctrl:hover {
+    background: #3B82F6;
+    color: #fff;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
 }
 
-.play-icon {
-    font-size: 1.4rem;
+.carousel-ctrl.prev {
+    left: -30px;
+}
+
+.carousel-ctrl.next {
+    right: -30px;
+}
+
+@media (max-width: 1200px) {
+    .carousel-ctrl.prev { left: 10px; }
+    .carousel-ctrl.next { right: 10px; }
 }
 
 /* 캐러셀 스타일 */

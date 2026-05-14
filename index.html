@@ -192,15 +192,11 @@
                 <h2 class="s-title">앱 화면을<br>미리 보세요</h2>
                 <div class="s-divider"></div>
                 <p class="s-desc">홈 대시보드에서 오늘 먹어야 할 약을 한눈에 확인하세요. 명확한 알림과 간편한 체크리스트로 부모님의 복약 시간을 꼼꼼하게 챙겨드립니다.</p>
-                <div class="s-action" style="margin-top: 40px;">
-                    <button id="rotate-btn" class="play-btn">
-                        <span class="play-icon">▶</span> 화면 전환하기
-                    </button>
-                </div>
             </div>
         </div>
         <div class="screens-right">
             <div class="carousel-container">
+                <button id="prev-btn" class="carousel-ctrl prev">◀</button>
                 <div class="screen-carousel" id="screen-carousel">
                     <div class="screen-item active" data-index="0">
                         <img src="img/screen1.png" alt="앱 화면 1">
@@ -219,6 +215,7 @@
                         <span>복약 알림</span>
                     </div>
                 </div>
+                <button id="next-btn" class="carousel-ctrl next">▶</button>
             </div>
         </div>
     </section>
@@ -559,14 +556,26 @@
         });
 
         // 2. 앱 화면 캐러셀 회전 로직
-        const rotateBtn = document.getElementById('rotate-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
         const carouselItems = document.querySelectorAll('.screen-item');
         let currentIndex = 0;
 
-        rotateBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % carouselItems.length;
-            updateCarousel();
-        });
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                // 기존 +1에서 -1로 변경 (방향 반전)
+                currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+                updateCarousel();
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                // 기존 -1에서 +1로 변경 (방향 반전)
+                currentIndex = (currentIndex + 1) % carouselItems.length;
+                updateCarousel();
+            });
+        }
 
         function updateCarousel() {
             carouselItems.forEach((item, index) => {
@@ -644,7 +653,7 @@
         setInterval(createPill, 800);
         // 4. 커스텀 커서 로직
         const cursor = document.getElementById('custom-cursor');
-        
+
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
