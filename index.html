@@ -640,6 +640,8 @@
 
         // 초기 알약들 생성
         for (let i = 0; i < 10; i++) setTimeout(createPill, Math.random() * 2000);
+        // 지속적으로 생성
+        setInterval(createPill, 800);
         // 4. 커스텀 커서 로직
         const cursor = document.getElementById('custom-cursor');
         
