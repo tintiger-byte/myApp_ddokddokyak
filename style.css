@@ -15,13 +15,17 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    cursor: none;
+    /* 기본 커서 숨김 */
+}
+
 body {
     font-family: 'Pretendard', sans-serif;
     color: var(--text-main);
     line-height: 1.6;
     word-break: keep-all;
-    cursor: none;
-    /* 기본 커서 숨김 */
 }
 
 /* 모든 클릭 요소에서도 커서 숨김 */
@@ -47,16 +51,16 @@ label,
     left: 0;
     pointer-events: none;
     z-index: 10000;
-    transform: translate(-15px, -15px);
-    /* 클릭 지점 최적화 */
-    transition: transform 0.1s ease-out;
+    /* CSS 변수로 위치와 크기 제어 */
+    transform: translate3d(var(--cursor-x, -100px), var(--cursor-y, -100px), 0) scale(var(--cursor-scale, 1));
+    will-change: transform;
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+    transition: filter 0.2s ease, transform 0.08s linear;
 }
 
-/* 호버 상태 클래스 */
+/* 호버 시 그림자만 변경 (위치는 JS가 변수로 항상 업데이트) */
 .custom-cursor.hover {
-    transform: translate(-15px, -15px) scale(1.4);
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 5px 15px rgba(59, 130, 246, 0.5));
 }
 
 /* 모바일/태블릿에서는 커스텀 커서 제외 */
@@ -691,7 +695,8 @@ nav {
     border-radius: 50%;
     color: #3B82F6;
     font-size: 1.5rem;
-    cursor: pointer;
+    cursor: none;
+    /* pointer에서 none으로 변경 */
     z-index: 200;
     display: flex;
     align-items: center;
