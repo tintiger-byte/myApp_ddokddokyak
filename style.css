@@ -527,21 +527,77 @@ nav {
     gap: 25px;
 }
 
-.problem-card {
-    background: #fff;
-    padding: 30px 40px;
+.card-container {
+    width: 100%;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.card-container:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    background: #fff;
     display: flex;
+    box-sizing: border-box;
+}
+
+.card-front {
     align-items: center;
     gap: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
     border-left: 5px solid transparent;
 }
 
-.problem-card:hover {
-    transform: translateX(10px);
-    border-left-color: #FF6F61;
+.card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: rotateY(180deg);
+    border-left: 5px solid #FF6F61;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-back .card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn-solution {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    background-color: #FF6F61;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background 0.3s;
+    font-weight: 700;
+    white-space: nowrap;
+    margin-left: 20px;
+}
+
+.btn-solution:hover {
+    background-color: #e65c50;
 }
 
 .card-index {
@@ -1364,10 +1420,79 @@ nav {
     color: #000;
 }
 
+/* Tools Interactive Wrapper */
+.tools-interactive-wrapper {
+    position: relative;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 24px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.tools-intro {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: opacity 0.4s ease, visibility 0.4s;
+    z-index: 10;
+}
+
+.tools-intro.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.intro-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #111;
+    text-align: center;
+}
+
+.btn-explore {
+    padding: 12px 30px;
+    font-size: 1.0rem;
+    border-radius: 50px;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-explore:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+.tools-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
+}
+
+.tools-content.hidden {
+    display: none;
+}
+
+.tools-content.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 .tools-grid-label {
     font-size: 1.0rem;
     font-weight: bold;
-    color: #000;
+    color: #333;
     margin-bottom: 20px;
 }
 
@@ -1378,19 +1503,34 @@ nav {
 }
 
 .tool-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.03);
     border-radius: 16px;
     padding: 20px;
     display: flex;
     align-items: center;
     gap: 15px;
-    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+
+    /* 초기 상태 (투명하고 아래로 20px 이동된 상태) */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
+
+    /* JavaScript에서 할당된 인덱스 변수를 이용해 시차 계산 */
+    transition-delay: calc(var(--delay, 0) * 0.1s);
+}
+
+.tools-content.active .tool-card {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .tool-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-5px);
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* 호버 시 딜레이 제거하여 즉각 반응하도록 설정 */
+    transition-delay: 0s !important;
 }
 
 .t-icon {
@@ -1401,18 +1541,18 @@ nav {
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.04);
 }
 
 .t-info strong {
     display: block;
-    color: #fff;
+    color: #222;
     font-size: 0.95rem;
     margin-bottom: 4px;
 }
 
 .t-info span {
-    color: #000;
+    color: #777;
     font-size: 0.75rem;
 }
 
@@ -1502,7 +1642,8 @@ nav {
 
 /* 마무리 섹션 스타일 */
 .thankyou {
-    background: linear-gradient(rgba(0, 0, 0, 0.6)), url('img/ai.jpg');
+    /* SF 사이버펑크 느낌을 위해 배경 이미지를 어둡게 처리 */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/ai.jpg');
     padding: 120px 0;
     text-align: center;
     position: relative;
@@ -1512,6 +1653,18 @@ nav {
     background-position: center;
 }
 
+/* 매트릭스 캔버스 배경 */
+.matrix-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* 컨텐츠 뒤로 배치 */
+    pointer-events: none;
+    /* 클릭 방해 방지 */
+}
 
 .thankyou .container {
     position: relative;
