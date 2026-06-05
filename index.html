@@ -610,7 +610,7 @@
                 <img src="img/똑똑약_로고_1-removebg-preview.png" alt="똑똑약 캐릭터" class="footer-char">
             </a>
             <h2>부모님의 건강한 하루, '똑똑약'이 응원합니다</h2>
-            <a href="https://smartpill-qg4s0y9tk-tintiger-bytes-projects.vercel.app/" class="btn btn-white">지금 무료로
+            <a href="https://smartpill-liard.vercel.app/" class="btn btn-white">지금 무료로
                 다운로드</a>
         </div>
     </footer>
@@ -782,7 +782,7 @@
         const canvas = document.getElementById('matrix-canvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
-            
+
             const resizeCanvas = () => {
                 const section = canvas.parentElement;
                 canvas.width = section.offsetWidth;
@@ -792,10 +792,10 @@
             resizeCanvas();
 
             const words = ['Figma', 'Claude', 'Firebase', 'Notion', 'Gamma', 'Perplexity', 'ChatGPT', 'Gemini', 'Front-End', 'Back-End', 'Canva', 'Google AI Studio', 'Midjourney'];
-            
+
             const drops = [];
             const maxDrops = 30; // 화면에 떨어지는 단어 개수
-            
+
             for (let i = 0; i < maxDrops; i++) {
                 drops.push({
                     x: Math.random() * canvas.width,
@@ -811,10 +811,10 @@
                 ctx.globalCompositeOperation = 'destination-out';
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.15)'; // 값이 클수록 꼬리가 짧아짐
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-                
+
                 // 원래 그리기 모드로 복귀
                 ctx.globalCompositeOperation = 'source-over';
-                
+
                 // 네온 초록색(Cyber Green) 글로우 텍스트 설정
                 ctx.shadowBlur = 8;
                 ctx.shadowColor = '#00FF41';
@@ -837,10 +837,10 @@
                         drop.speed = 0.8 + Math.random() * 1.5;
                     }
                 }
-                
+
                 requestAnimationFrame(draw);
             };
-            
+
             draw();
         }
     </script>
