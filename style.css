@@ -1210,16 +1210,16 @@ nav {
 
 .card-tools {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     margin-bottom: 25px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .tool {
     background: #F8F9FA;
-    padding: 6px 14px;
+    padding: 6px 10px;
     border-radius: 8px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #555;
     font-weight: 600;
     border: 1px solid #EEE;
@@ -1307,6 +1307,11 @@ nav {
 @media (max-width: 1024px) {
     .utilization {
         flex-direction: column;
+    }
+
+    .util-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
     .util-left {
@@ -1931,5 +1936,10 @@ nav {
 
     .hero-image {
         margin-top: 50px;
+    }
+
+    .util-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }

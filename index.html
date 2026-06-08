@@ -233,16 +233,40 @@
                         <span>홈 대시보드</span>
                     </div>
                     <div class="screen-item next" data-index="1">
-                        <img src="img/screen2.png" alt="앱 화면 2">
-                        <span>복약 현황</span>
+                        <img src="img/02.login.png" alt="앱 화면 2">
+                        <span>로그인</span>
                     </div>
                     <div class="screen-item hidden" data-index="2">
-                        <img src="img/screen3.png" alt="앱 화면 3">
+                        <img src="img/03.register.png" alt="앱 화면 3">
+                        <span>회원가입</span>
+                    </div>
+                    <div class="screen-item hidden" data-index="3">
+                        <img src="img/screen2.png" alt="앱 화면 4">
+                        <span>복약 현황</span>
+                    </div>
+                    <div class="screen-item hidden" data-index="4">
+                        <img src="img/screen3.png" alt="앱 화면 5">
                         <span>복약 리스트</span>
                     </div>
-                    <div class="screen-item prev" data-index="3">
-                        <img src="img/screen4.png" alt="앱 화면 4">
+                    <div class="screen-item hidden" data-index="5">
+                        <img src="img/06.prescription-list.png" alt="앱 화면 6">
+                        <span>처방전 목록</span>
+                    </div>
+                    <div class="screen-item hidden" data-index="6">
+                        <img src="img/07.prescription-register.png" alt="앱 화면 7">
+                        <span>처방전 등록</span>
+                    </div>
+                    <div class="screen-item hidden" data-index="7">
+                        <img src="img/screen4.png" alt="앱 화면 8">
                         <span>복약 알림</span>
+                    </div>
+                    <div class="screen-item hidden" data-index="8">
+                        <img src="img/09.medication-stats.png" alt="앱 화면 9">
+                        <span>복약 통계</span>
+                    </div>
+                    <div class="screen-item prev" data-index="9">
+                        <img src="img/10.health-record-today.png" alt="앱 화면 10">
+                        <span>오늘 건강 기록</span>
                     </div>
                 </div>
                 <button id="next-btn" class="carousel-ctrl next">▶</button>
@@ -258,7 +282,7 @@
                     <div class="dots">
                         <span></span><span></span><span></span>
                     </div>
-                    <div class="chat-title">Claude — 똑똑약 기획 대화</div>
+                    <div class="chat-title">Gemini — 똑똑약 기획 대화</div>
                 </div>
                 <div class="chat-body">
                     <div class="chat-msg user">
@@ -368,7 +392,7 @@
                     </div>
                     <div class="card-bottom">
                         <div class="card-tools">
-                            <span class="tool">Claude</span>
+                            <span class="tool">ChatGPT</span>
                             <span class="tool">Gemini</span>
                         </div>
                         <div class="card-freq">
@@ -413,7 +437,7 @@
                     <div class="card-bottom">
                         <div class="card-tools">
                             <span class="tool">Claude</span>
-                            <span class="tool">Copilot</span>
+                            <span class="tool">Antigravity</span>
                         </div>
                         <div class="card-freq">
                             <span class="freq-text">매일 사용</span>
@@ -435,7 +459,7 @@
                     <div class="card-bottom">
                         <div class="card-tools">
                             <span class="tool">Gamma</span>
-                            <span class="tool">Claude</span>
+                            <span class="tool">Notefolio</span>
                         </div>
                         <div class="card-freq">
                             <span class="freq-text">가끔 사용</span>
@@ -490,7 +514,7 @@
                             <div class="t-icon i-figma">🎨</div>
                             <div class="t-info">
                                 <strong>Figma</strong>
-                                <span>UI / 프로토타입</span>
+                                <span>UI/UX 디자인</span>
                             </div>
                         </div>
                         <div class="tool-card">
@@ -524,8 +548,8 @@
                         <div class="tool-card">
                             <div class="t-icon i-perplexity">🔍</div>
                             <div class="t-info">
-                                <strong>Perplexity</strong>
-                                <span>시장 리서치</span>
+                                <strong>Antigravity</strong>
+                                <span>빌드 및 배포</span>
                             </div>
                         </div>
                         <div class="tool-card">
@@ -646,6 +670,34 @@
                 updateCarousel();
             });
         }
+
+        // 키보드 좌우 화살표로 회전 로직 (마우스가 #screens 섹션 위에 있을 때만 동작)
+        let isScreensHovered = false;
+        const screensSection = document.getElementById('screens');
+        if (screensSection) {
+            screensSection.addEventListener('mouseenter', () => {
+                isScreensHovered = true;
+            });
+            screensSection.addEventListener('mouseleave', () => {
+                isScreensHovered = false;
+            });
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (isScreensHovered) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    // 이전 버튼(prevBtn) 클릭 동작과 동일 (왼쪽으로 회전)
+                    currentIndex = (currentIndex + 1) % carouselItems.length;
+                    updateCarousel();
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    // 다음 버튼(nextBtn) 클릭 동작과 동일 (오른쪽으로 회전)
+                    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+                    updateCarousel();
+                }
+            }
+        });
 
         function updateCarousel() {
             carouselItems.forEach((item, index) => {
